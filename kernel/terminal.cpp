@@ -27,6 +27,27 @@ void terminal_initialize()
     terminal_draw_cursor();
 }
 
+void terminal_clear_screen()
+{
+    for (int y = 0; y < VGA_HEIGHT; y++)
+    {
+        for (int x = 0; x < VGA_WIDTH; x++)
+        {
+            buffer[y * VGA_WIDTH + x] = 0x0720;
+        }
+    }
+
+    row = 0;
+    col = 0;
+
+    if (serial_is_initialized())
+    {
+        serial_write("\x1b[2J\x1b[H");
+    }
+
+    terminal_draw_cursor();
+}
+
 void terminal_putchar(char c)
 {
     if (c == '\b')

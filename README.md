@@ -134,7 +134,7 @@ wsl bash -lc "cd /mnt/d/nexis/MyKernel && make clean"
 If you want to delete them manually instead:
 
 ```powershell
-wsl bash -lc "cd /mnt/d/nexis/MyKernel && rm -f boot.o io.o kernel.o serial.o terminal.o kernel.bin mykernel.iso"
+Remove-Item -Force boot.o, io.o, kernel.o, serial.o, terminal.o, kernel.bin, mykernel.iso -ErrorAction SilentlyContinue
 ```
 
 ## Notes

@@ -218,9 +218,7 @@ namespace
         create_entry(0, "README.md", false, "This is a virtual in-memory shell filesystem.\n");
         create_entry(0, "grub.cfg", false, "set timeout=0\n");
         create_entry(0, "boot", true, 0);
-        create_entry(0, "include", true, 0);
         create_entry(0, "kernel", true, 0);
-        create_entry(0, "iso", true, 0);
     }
 
     bool create_entry(int parent, const char* name, bool is_directory, const char* content)
@@ -800,6 +798,8 @@ namespace
             }
 
             delete_entry(target);
+            terminal_write(path);
+            terminal_write(" deleted\n");
             return;
         }
 
@@ -830,6 +830,8 @@ namespace
             }
 
             delete_entry(target);
+            terminal_write(path);
+            terminal_write(" deleted\n");
             return;
         }
 
@@ -848,7 +850,7 @@ namespace
 
         if (streq(name, "clear"))
         {
-            terminal_initialize();
+            terminal_clear_screen();
             return;
         }
 
