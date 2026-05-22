@@ -118,11 +118,10 @@ ls
 
 - `boot/` - Boot assembly entry point
 - `kernel/` - Kernel source code
-- `include/` - Header files
-- `iso/` - GRUB ISO staging area
 - `grub.cfg` - GRUB boot menu configuration
 - `linker.ld` - Linker script
 - `Makefile` - Build and run commands
+
 
 ## Cleanup
 
@@ -135,7 +134,7 @@ wsl bash -lc "cd /mnt/d/nexis/MyKernel && make clean"
 If you want to delete them manually instead:
 
 ```powershell
-wsl bash -lc "cd /mnt/d/nexis/MyKernel && rm -f boot.o io.o kernel.o serial.o terminal.o kernel.bin mykernel.iso && rm -rf iso/boot"
+wsl bash -lc "cd /mnt/d/nexis/MyKernel && rm -f boot.o io.o kernel.o serial.o terminal.o kernel.bin mykernel.iso"
 ```
 
 ## Notes
